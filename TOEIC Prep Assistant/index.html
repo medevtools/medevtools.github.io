@@ -1,215 +1,109 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Politique de Confidentialité - TOEIC Prep Assistant</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TOEIC Prep Assistant — medevtools</title>
+  <style>
+    :root{--bg1:#001021;--bg2:#0a2540;--accent:#00f0ff;--neon:#7dfcff}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    body{
+      display:flex;align-items:flex-start;justify-content:center;padding:36px 20px;
+      background:linear-gradient(120deg,var(--bg1),var(--bg2));background-size:400% 400%;animation:bgShift 12s ease infinite;color:#e6f7ff
+    }
+    @keyframes bgShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
+    .card{width:min(1100px,96%);padding:28px;border-radius:14px;position:relative;
+      background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
+      box-shadow:0 8px 40px rgba(2,6,23,0.6);backdrop-filter: blur(8px);border:1px solid rgba(125,252,255,0.08);
+      display:grid;grid-template-columns:360px 1fr;gap:22px;align-items:start
+    }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #fff;
-            min-height: 100vh;
-        }
+    header{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .title-link{font-size:26px;font-weight:700;color:var(--neon);text-decoration:none;letter-spacing:0.6px;
+      text-shadow:0 0 10px rgba(125,252,255,0.14);padding:6px 10px;border-radius:8px;display:inline-block}
+    .meta{font-size:13px;color:rgba(230,247,255,0.72)}
 
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-            font-size: 2rem;
-        }
+    .preview{border-radius:10px;height:420px;overflow:hidden;position:relative;background:linear-gradient(180deg,rgba(7,18,30,0.85),rgba(2,8,18,0.88));border:1px solid rgba(125,252,255,0.04)}
+    .preview .grid{position:absolute;inset:0;background-image:linear-gradient(transparent 70%, rgba(125,252,255,0.02) 70%),linear-gradient(90deg, transparent 70%, rgba(125,252,255,0.02) 70%);background-size:100% 40px,40px 100%;mix-blend-mode:overlay}
+    .preview .scan{position:absolute;left:-40%;top:0;width:60%;height:100%;background:linear-gradient(90deg, transparent, rgba(125,252,255,0.06), transparent);transform:skewX(-18deg);animation:scan 3.6s linear infinite}
+    @keyframes scan{0%{transform:translateX(-140%) skewX(-18deg)}100%{transform:translateX(240%) skewX(-18deg)}}
 
-        h2 {
-            color: #34495e;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 8px;
-        }
+    .dot{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--accent);opacity:.18;box-shadow:0 0 18px var(--accent)}
 
-        h3 {
-            color: #2c3e50;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
+    .content{background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:10px;max-height:420px;overflow:auto;color:rgba(230,247,255,0.95)}
+    .content h1{color:var(--neon);margin-bottom:6px}
+    .muted{color:rgba(230,247,255,0.7);font-size:13px;margin-bottom:12px}
 
-        p {
-            margin-bottom: 15px;
-        }
+    .section h2{color:#bfeff6;margin-top:14px;margin-bottom:8px}
+    .highlight{background:rgba(125,252,255,0.03);padding:12px;border-radius:8px;margin:12px 0}
 
-        .update-date {
-            color: #7f8c8d;
-            font-style: italic;
-            margin-bottom: 30px;
-        }
+    .footer{grid-column:1/-1;margin-top:12px;color:rgba(230,247,255,0.72);font-size:13px}
 
-        ul {
-            margin-bottom: 15px;
-            padding-left: 25px;
-        }
+    a, a:visited{color:var(--neon)}
 
-        li {
-            margin-bottom: 8px;
-        }
-
-        strong {
-            color: #2c3e50;
-        }
-
-        a {
-            color: #3498db;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .highlight {
-            background-color: #e8f4f8;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 15px 0;
-        }
-
-        .contact-info {
-            background-color: #f0f0f0;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px 15px;
-            }
-
-            h1 {
-                font-size: 1.6rem;
-            }
-
-            h2 {
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+    @media (max-width:900px){.card{grid-template-columns:1fr;}.preview{height:280px}.content{max-height:300px}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Politique de Confidentialité - TOEIC Prep Assistant</h1>
-        <p class="update-date"><strong>Dernière mise à jour :</strong> 3 décembre 2025</p>
+  <div class="card" role="main">
+    <header>
+      <a class="title-link" href="/">TOEIC Prep Assistant</a>
+      <div class="meta">Politique de confidentialité — Aperçu intégré</div>
+    </header>
 
+    <div class="preview" aria-hidden="true">
+      <div class="grid"></div>
+      <div class="scan"></div>
+      <div class="dot" style="left:10%;top:18%;width:10px;height:10px;opacity:.22"></div>
+      <div class="dot" style="left:26%;top:64%;width:6px;height:6px;opacity:.13"></div>
+      <div class="dot" style="left:70%;top:40%;width:8px;height:8px;opacity:.18"></div>
+      <div style="position:absolute;left:22px;bottom:22px;color:rgba(125,252,255,0.9);font-weight:600">TOEIC Prep — interface néon</div>
+    </div>
+
+    <div class="content">
+      <h1>Politique de Confidentialité</h1>
+      <div class="muted"><strong>Dernière mise à jour :</strong> 3 décembre 2025</div>
+
+      <div class="section">
         <h2>Introduction</h2>
-        <p>TOEIC Prep Assistant ("l'Extension") est une extension Chrome conçue pour aider les utilisateurs à améliorer leur anglais et préparer le test TOEIC. L'extension propose un assistant IA conversationnel pour répondre aux questions de grammaire, vocabulaire et préparation TOEIC. Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos données.</p>
+        <p>TOEIC Prep Assistant ("l'Extension") est conçue pour aider les utilisateurs à améliorer leur anglais et préparer le test TOEIC. Cette politique explique comment nous collectons, utilisons et protégeons vos données.</p>
 
         <h2>Fonctionnalités principales</h2>
         <ul>
-            <li><strong>Chat IA</strong> : Posez des questions sur la grammaire anglaise, le vocabulaire et la préparation TOEIC</li>
-            <li><strong>Tuteur intelligent</strong> : Obtenez des explications claires et des exemples pratiques</li>
-            <li><strong>Aide aux exercices</strong> : Assistance pour vos exercices de préparation TOEIC</li>
+          <li><strong>Chat IA</strong> : Réponses sur grammaire, vocabulaire et préparation TOEIC.</li>
+          <li><strong>Tuteur intelligent</strong> : Explications et exemples pratiques.</li>
+          <li><strong>Aide aux exercices</strong> : Assistance intégrée pour la préparation.</li>
         </ul>
 
         <h2>Données collectées</h2>
-
         <h3>1. Données stockées localement</h3>
-        <p>L'Extension stocke les données suivantes <strong>uniquement sur votre appareil</strong> (via Chrome Storage) :</p>
-        <ul>
-            <li><strong>Clé API Gemini</strong> : Votre clé API personnelle pour accéder aux services d'intelligence artificielle de Google</li>
-            <li><strong>Préférences utilisateur</strong> : Paramètres de l'extension (intervalle, type d'exercice sélectionné)</li>
-            <li><strong>Clé de licence</strong> : Pour vérifier votre autorisation d'utilisation</li>
-            <li><strong>Identifiant d'appareil</strong> : Un identifiant unique généré localement pour la gestion des licences</li>
-        </ul>
+        <p>L'extension stocke certaines données localement via le stockage du navigateur : clés API, préférences utilisateur, clé de licence et identifiant d'appareil (généré localement).</p>
 
         <h3>2. Données transmises à des serveurs tiers</h3>
-        <ul>
-            <li><strong>Google Gemini API</strong> : Le contenu des exercices (textes, questions) est envoyé à l'API Google Gemini pour analyse. Consultez la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">politique de confidentialité de Google</a> pour plus d'informations.</li>
-            <li><strong>Serveur de licences</strong> : Nous transmettons uniquement :
-                <ul>
-                    <li>Votre clé de licence</li>
-                    <li>L'identifiant unique de votre appareil</li>
-                    <li>Aucune donnée personnelle identifiable n'est collectée</li>
-                </ul>
-            </li>
-        </ul>
+        <p>Le contenu nécessaire au traitement IA peut être envoyé à des API tierces (par ex. Google Gemini). Consultez leurs politiques pour plus d'informations.</p>
 
-        <h2>Données NON collectées</h2>
         <div class="highlight">
-            <p>Nous ne collectons <strong>PAS</strong> :</p>
-            <ul>
-                <li>Vos informations personnelles (nom, email, adresse)</li>
-                <li>Vos identifiants GlobalExam</li>
-                <li>Votre historique de navigation</li>
-                <li>Vos résultats aux exercices</li>
-                <li>Aucune donnée analytique ou de tracking</li>
-            </ul>
+          <strong>Données NON collectées :</strong>
+          <ul>
+            <li>Nom, email ou adresse personnelle (sauf si fournis volontairement)</li>
+            <li>Historique de navigation</li>
+            <li>Résultats détaillés non requis pour le service</li>
+          </ul>
         </div>
 
-        <h2>Utilisation des données</h2>
-        <p>Les données sont utilisées exclusivement pour :</p>
+        <h2>Utilisation et sécurité</h2>
         <ul>
-            <li>Fournir une assistance IA pendant vos exercices TOEIC</li>
-            <li>Vérifier la validité de votre licence d'utilisation</li>
-            <li>Sauvegarder vos préférences localement</li>
+          <li>Les données servent uniquement à fournir l'assistance IA et vérifier les licences.</li>
+          <li>Les communications sont chiffrées (HTTPS) et les caches locaux peuvent être chiffrés.</li>
         </ul>
-
-        <h2>Stockage et sécurité</h2>
-        <ul>
-            <li>Toutes les données sont stockées <strong>localement</strong> sur votre appareil</li>
-            <li>Les communications avec les serveurs sont chiffrées (HTTPS)</li>
-            <li>Le cache de licence est chiffré localement</li>
-            <li>Aucune base de données centralisée ne stocke vos informations personnelles</li>
-        </ul>
-
-        <h2>Partage des données</h2>
-        <p>Nous ne vendons, n'échangeons ni ne transférons vos données à des tiers, sauf :</p>
-        <ul>
-            <li>Google (via l'API Gemini) pour le traitement IA</li>
-            <li>Notre serveur de licences (données minimales de vérification uniquement)</li>
-        </ul>
-
-        <h2>Vos droits</h2>
-        <p>Vous pouvez à tout moment :</p>
-        <ul>
-            <li><strong>Supprimer vos données</strong> : Désinstallez l'extension ou effacez les données via les paramètres Chrome</li>
-            <li><strong>Révoquer l'accès API</strong> : Supprimez votre clé API depuis l'interface de l'extension</li>
-            <li><strong>Désactiver la licence</strong> : Utilisez le bouton de désactivation dans l'onglet Licence</li>
-        </ul>
-
-        <h2>Permissions de l'extension</h2>
-        <p>L'extension requiert les permissions suivantes :</p>
-        <ul>
-            <li><strong>activeTab</strong> : Interagir avec la page GlobalExam active</li>
-            <li><strong>storage</strong> : Sauvegarder vos préférences localement</li>
-            <li><strong>scripting</strong> : Injecter le script d'assistance sur GlobalExam</li>
-            <li><strong>host_permissions</strong> : Communiquer avec l'API Gemini et le serveur de licences</li>
-        </ul>
-
-        <h2>Modifications de cette politique</h2>
-        <p>Nous nous réservons le droit de modifier cette politique. Les changements seront reflétés par la date de "dernière mise à jour" ci-dessus.</p>
 
         <h2>Contact</h2>
-        <div class="contact-info">
-            <p>Pour toute question concernant cette politique de confidentialité, veuillez nous contacter à :</p>
-            <p><strong>Email :</strong> <a href="mailto:contact@visionia.me">contact@visionia.me</a></p>
-        </div>
-
-        <h2>Consentement</h2>
-        <p>En utilisant cette extension, vous consentez à cette politique de confidentialité.</p>
+        <p>Pour toute question relative à cette politique, contactez-nous : <strong><a href="mailto:medevtools@gmail.com">medevtools@gmail.com</a></strong></p>
+      </div>
     </div>
+
+    <div class="footer">Besoin d'une version imprimable ou d'adaptations ? Contact : <a href="mailto:medevtools@gmail.com">medevtools@gmail.com</a></div>
+  </div>
 </body>
 </html>
