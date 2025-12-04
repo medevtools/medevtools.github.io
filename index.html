@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Accueil — medevtools</title>
+	<style>
+		:root{--bg1:#001021;--bg2:#0a2540;--accent:#00f0ff;--neon:#7dfcff}
+		html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial}
+		body{
+			display:flex;align-items:center;justify-content:center;
+			background:linear-gradient(120deg,var(--bg1),var(--bg2));
+			background-size:400% 400%;animation:bgShift 12s ease infinite;color:#e6f7ff
+		}
+		@keyframes bgShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+		.card{width:min(880px,92%);padding:36px;border-radius:14px;position:relative;
+			background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
+			box-shadow:0 8px 30px rgba(2,6,23,0.6);backdrop-filter: blur(8px);border:1px solid rgba(125,252,255,0.08);
+		}
+
+		header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+		.title-link{font-size:28px;font-weight:700;color:var(--neon);text-decoration:none;letter-spacing:0.6px;
+			text-shadow:0 0 10px rgba(125,252,255,0.14),0 0 30px rgba(0,240,255,0.06);padding:6px 10px;border-radius:8px;
+			transition:transform .18s ease,box-shadow .18s ease;display:inline-block}
+		.title-link:hover{transform:translateY(-3px);box-shadow:0 6px 30px rgba(0,240,255,0.12)}
+
+		.meta{font-size:13px;color:rgba(230,247,255,0.7)}
+
+		.preview{margin-top:22px;border-radius:10px;height:360px;overflow:hidden;position:relative;
+			background:linear-gradient(180deg,rgba(7,18,30,0.8),rgba(2,8,18,0.85));border:1px solid rgba(125,252,255,0.04)}
+
+		/* grille futuriste */
+		.grid{
+			position:absolute;inset:0;background-image:linear-gradient(transparent 70%, rgba(125,252,255,0.02) 70%),linear-gradient(90deg, transparent 70%, rgba(125,252,255,0.02) 70%);
+			background-size:100% 40px,40px 100%;mix-blend-mode:overlay;pointer-events:none}
+
+		/* scanline */
+		.scan{position:absolute;left:-40%;top:0;width:60%;height:100%;background:linear-gradient(90deg, transparent, rgba(125,252,255,0.06), transparent);
+			transform:skewX(-18deg);animation:scan 3.6s linear infinite;mix-blend-mode:screen}
+		@keyframes scan{0%{transform:translateX(-140%) skewX(-18deg)}100%{transform:translateX(240%) skewX(-18deg)}}
+
+		/* floating particles */
+		.dot{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--accent);opacity:.18;box-shadow:0 0 18px var(--accent)}
+
+		.cta{margin-top:18px;display:flex;gap:14px;align-items:center}
+		.btn{background:rgba(125,252,255,0.06);color:var(--neon);padding:10px 14px;border-radius:10px;border:1px solid rgba(125,252,255,0.06);text-decoration:none;font-weight:600}
+
+		footer{margin-top:20px;font-size:13px;color:rgba(230,247,255,0.62)}
+		@media (max-width:520px){.preview{height:260px}.title-link{font-size:20px}}
+	</style>
+</head>
+<body>
+	<div class="card" role="main">
+		<header>
+			<a class="title-link" href="TOEIC%20Prep%20Assistant/" aria-label="Ouvrir TOEIC Prep Assistant">TOEIC Prep Assistant</a>
+			<div class="meta">Assistant d'entraînement TOEIC — aperçu futuriste</div>
+		</header>
+
+		<div class="preview" aria-hidden="true">
+			<div class="grid"></div>
+			<div class="scan"></div>
+			<!-- Quelques points décoratifs -->
+			<div class="dot" style="left:8%;top:20%;width:10px;height:10px;opacity:.22"></div>
+			<div class="dot" style="left:28%;top:68%;width:6px;height:6px;opacity:.13"></div>
+			<div class="dot" style="left:72%;top:42%;width:8px;height:8px;opacity:.18"></div>
+			<div class="dot" style="left:84%;top:78%;width:5px;height:5px;opacity:.12"></div>
+
+			<!-- Contenu aperçu minimal -->
+			<div style="position:absolute;left:40px;bottom:36px;color:rgba(125,252,255,0.9);font-weight:600;letter-spacing:0.4px">
+				Aperçu rapide — thème néon
+			</div>
+		</div>
+
+		<div class="cta">
+			<a class="btn" href="TOEIC%20Prep%20Assistant/">Ouvrir l'application</a>
+			<div style="color:rgba(230,247,255,0.7);font-size:13px">ou naviguez dans le dossier `TOEIC Prep Assistant`</div>
+		</div>
+
+		<footer>
+			Besoin d'une autre ambiance ? Je peux créer une version plus sobre, professionnelle, ou entièrement graphique.
+		</footer>
+	</div>
+</body>
+</html>
+
